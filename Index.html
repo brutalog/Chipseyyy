@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+
+body {
+  margin:0;
+  font-family:'Quicksand', sans-serif;
+  background: linear-gradient(135deg,#ffb6c1,#ffd6e8);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+  overflow-y:auto;
+}
+
+.card {
+  background:white;
+  width:90%;
+  max-width:560px;
+  padding:28px;
+  border-radius:28px;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+  margin:40px 0;
+  text-align:center;
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  from{transform:scale(.85);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+#mainContent{
+  display: none;
+}
+
+h1 {
+  font-family:'Pacifico', cursive;
+  color:#ff4081;
+  font-size:2.6rem;
+  letter-spacing:1px;
+}
+
+.text {
+  margin:16px 0;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.mine {
+  margin:16px 0;
+  font-size:36px;
+  line-height:1.7;
+}
+
+.final {
+  margin:16px 0;
+  font-size:26px;
+  line-height:1.7;
+}
+
+.big-img {
+  width:30%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius:22px;
+  margin-top:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.big-img1 {
+  width:85%;
+  border-radius:20px;
+  max-width: 700px;
+  margin: 30px auto;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  display: block;
+}
+
+
+.caption {
+  font-size:14px;
+  opacity:.75;
+  margin-bottom:10px;
+}
+
+.final-question {
+  font-family: 'Dancing Script', cursive;
+  font-size:27px;
+  font-weight:600;
+  margin:38px 0 20px;
+  color:#ff4081;
+}
+
+.buttons {
+  margin-top:20px;
+}
+
+.lyricLine {
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+  margin-top: 25px;
+  color: #c94b74;
+  opacity: 0.9;
+}
+
+#content {
+  display: none;
+}
+
+button {
+  border:none;
+  padding:15px 28px;
+  border-radius:30px;
+  font-size:17px;
+  cursor:pointer;
+  margin:8px;
+  background:#ff4081;
+  color:white;
+  transition:.25s;
+}
+
+button:hover {
+  transform:scale(1.1);
+  background:#e73370;
+}
+
+.footer {
+  font-size:13px;
+  opacity:.7;
+  margin-top:15px;
+}
+
+.heart {
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:float 7s linear infinite;
+}
+
+@keyframes float {
+  to{transform:translateY(-120vh);opacity:0;}
+}
+
+.celebrate{
+  position: fixed;
+  pointer-events:none;
+  animation: fall linear forwards;
+  z-index:9999;
+}
+
+@keyframes fall{
+  to{
+    transform: translateY(120vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); opacity:0; }
+}
+
+@keyframes bgMove {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+
+.shake {
+  animation: shakeAnim .7s;
+}
+
+@keyframes shakeAnim {
+  0% {transform:translateX(0)}
+  25% {transform:translateX(-10px)}
+  50% {transform:translateX(10px)}
+  75% {transform:translateX(-8px)}
+  100% {transform:translateX(0)}
+}
+
+.celebrate {
+  position:fixed;
+  animation: fall linear forwards;
+  pointer-events:none;
+}
+
+#yesScreen{
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffd6e8,#ffeecb,#ffc1d9);
+  background-size:400% 400%;
+  animation:bgMove 10s ease infinite;
+  text-align:center;
+  font-family:'Great Vibes',cursive;
+  z-index:9999;
+}
+
+.yesImagesRow {
+  display: flex;
+  gap: 25px;
+  margin: 40px 0;
+
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.yesImg:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.yesImg{
+  width:200px;
+  max-width:90%;
+  margin:20px 0;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(255,105,180,.6);
+  animation:popIn 1.2s ease forwards;
+}
+
+@keyframes popIn{
+  from{transform:scale(.3);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.gojoImagesRow {
+  display: flex;
+  gap: 25px;
+  margin: 40px 0;
+
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gojoImg:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.gojoImg{
+  width:200px;
+  max-width:90%;
+  margin:20px 0;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(255,105,180,.6);
+  animation:popIn 1.2s ease forwards;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<div id="intro">
+<h1>Hey Luxu 👀💗</h1>
+<img src="E:/Project/Avatar.jpeg" class="big-img">
+<p>Konjam idha click pannunga devil sabb...Nalla pulla la 😏✨</p>
+<audio id="bgMusic" loop>
+    <source src="E:/Project/fav.mp3" type="audio/mpeg">
+</audio>
+
+<button id="playBtn">Click Here 😉💗</button>
+</div>
+<div id="content">
+<div class="mine">
+<center><strong>May 19th 2025</strong></center></div>
+<br>
+<div class="text">
+Idhu than ennoda fav day... Appothula irrudhu than nammaloda indha endless journey start aachu... Appothula irrundhu ippo varikum un kuda irrukura appo nan enjoy pannadha naale illa chipseyy.... 600+ matches codm la... countless hours mic la.... Discord la vc....  Roblox, Minecraft, Amoung us ella gameaiyum ennaku villayada theriyala nalum sollu kudthu villayada vecha 😭💗... Minecraft la nan unna oru time saava adichadhuku enna neriya time saava adicha adhu veara vishayam.... Actually adhuku nan deserved than 😂😂 
+</div>
+
+<img src="E:/Project/KO.jpeg" class="big-img1">
+<p class="caption">Adutha vaati confirma revenge edupen😂👊.</p>
+
+<div class="text">
+  Appothula irrudhu ippo varikum namma peasadha naale illa la.... En Birthday appo nee first wisha panna, Ellathaiyum en kitta share panna, Nan enna than bore adikira madhiri peasunalum nee en kuda salikama peasuna 🥺✨, Nan oru time keaten enna nan eppadi better aakikarudhu nu.... Appo nee sonna andha "Theava illa already nee better than", Adha ellam maraka mudiyadha memories ennaku 😭🔥<br><br> Innum neriya memories irruku but elathaiyum indha orey page la solla mudiyala,appadi sollanum na adhuku oru thani booke ezhudhalam ✨✨....Pahhh evalo memories la....Ithana naal eppadi poochu ne theriyala.... Romba speeda poona madhiri irruku 😭😭😭🔥🔥🔥
+</div>
+
+<img src="E:/Project/Meme.jpeg" class="big-img1">
+<p class="caption">Appovum Ippovum Eppovum en fav meme idhan 😭🔥</p>
+
+<div class="text">
+<strong>Nan unkitta romba naala sollanum nu nenachadhu onnu irruku 😌😌</strong>
+</div>
+<div class="final"><strong>
+Ellarum valentine's day kondaduradhu inniku.....<br>Namma rendu pearu kondaduradhu enniku? 😝✨</strong>
+</div>
+
+<div class="gojoImagesRow">
+  <img src="E:/Project/aw.jpeg" class="gojoImg">
+  <img src="E:/Project/cute.jpeg" class="gojoImg">
+</div>
+
+<div class="final-question">
+Soo....ennoda Mudhalum nee… mudivum neeya iruppiya chipseyyyyy? 🥺💖
+</div>
+
+<p class="lyricLine">Vaada hai mera main hoon tere liye 💗✨</p>
+
+<div class="buttons">
+  <button onclick="yesClicked()">YES 😌💘</button>
+  <button onclick="noClicked()">NO 🙄❤️</button>
+</div>
+
+<div class="footer">
+— from the guy who still wants to reach home before youuu.....One day kandipa nadakum 😏😈 —
+</div>
+
+</div>
+
+<script>
+
+const startBtn = document.getElementById("playBtn");
+const intro = document.getElementById("intro");
+const content = document.getElementById("content");
+const music = document.getElementById("bgMusic");
+
+startBtn.addEventListener("click", () => {
+  intro.style.display = "none";
+  content.style.display = "block";
+
+  music.currentTime = 0;
+  music.volume = 0.6;
+
+  const playPromise = music.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(err => console.log("Audio error:", err));
+  }
+});
+
+setInterval(()=>{
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerText="💗";
+ h.style.left=Math.random()*100+"vw";
+ h.style.fontSize=Math.random()*15+14+"px";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),7000);
+},650);
+
+function closeError() {
+  const box = document.getElementById("errorBox");
+  if (box) box.style.display = "none";
+
+  document.head.appendChild(style);
+  launchCelebration();
+}
+
+function yesClicked(){
+
+  document.getElementById("content").style.display="none";
+  const yesScreen = document.createElement("div");
+  yesScreen.id="yesScreen";
+
+  yesScreen.innerHTML = `
+    <h1>YASSSS 😭❤️🔥🔥</h1>
+    <div class="yesImagesRow">
+    <img src="E:/Project/me.jpeg" class="yesImg">
+    <img src="E:/Project/you.jpeg" class="yesImg">
+    </div>
+    <p>Inimel chinrasa kailaiye pidika mudiyadhu 😭🔥🔥🔥🔥</p>
+  `;
+
+  document.body.appendChild(yesScreen);
+
+  launchCelebration();
+  heartRain();
+  screenShake();
+}
+
+function launchCelebration() {
+  for (let i = 0; i < 80; i++) {
+    const el = document.createElement("div");
+    el.innerText = ["🎉","💖","✨","🥳","💫","💥"][Math.floor(Math.random()*6)];
+    el.className = "celebrate";
+
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.top = "-30px";
+    el.style.fontSize = (20 + Math.random()*25) + "px";
+    el.style.animationDuration = (3 + Math.random()*3) + "s";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 7000);
+  }
+}
+
+function heartRain(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.innerText="💖";
+    h.style.position="fixed";
+    h.style.left=Math.random()*100+"vw";
+    h.style.top="-20px";
+    h.style.fontSize=(18+Math.random()*25)+"px";
+    h.style.animation="fall 5s linear forwards";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },350);
+}
+
+function screenShake(){
+ document.body.classList.add("shake");
+ setTimeout(()=>document.body.classList.remove("shake"),800);
+}
+
+function noClicked() {
+
+  injectShakeCSS();
+  document.body.classList.add("shake");
+
+  setTimeout(() => {
+    document.body.classList.remove("shake");
+  }, 500);
+
+
+  let errorBox = document.getElementById("errorBox");
+
+  if (!errorBox) {
+    errorBox = document.createElement("div");
+    errorBox.id = "errorBox";
+    errorBox.style.position = "fixed";
+    errorBox.style.top = "0";
+    errorBox.style.left = "0";
+    errorBox.style.width = "100%";
+    errorBox.style.height = "100%";
+    errorBox.style.background = "rgba(0,0,0,0.6)";
+    errorBox.style.display = "flex";
+    errorBox.style.alignItems = "center";
+    errorBox.style.justifyContent = "center";
+    errorBox.style.zIndex = "9999";
+
+    const card = document.createElement("div");
+    card.style.background = "#fff";
+    card.style.padding = "28px";
+    card.style.borderRadius = "18px";
+    card.style.textAlign = "center";
+    card.style.maxWidth = "300px";
+    card.style.boxShadow = "0 20px 40px rgba(0,0,0,0.3)";
+    card.style.fontFamily = "sans-serif";
+
+    card.innerHTML = `
+      <h2>🚫 Invalid Choice</h2>
+      <p>Indha option illa 😠😠</p>
+      <p>Already nee ennoda valentine than😠</p>
+      <button onclick="closeError()" 
+        style="
+          margin-top:12px;
+          padding:10px 18px;
+          border:none;
+          border-radius:10px;
+          background:#ff3d7f;
+          color:white;
+          font-size:16px;
+          cursor:pointer;">
+        Okayyy 😌
+      </button>
+    `;
+
+    errorBox.appendChild(card);
+    document.body.appendChild(errorBox);
+
+  } else {
+    errorBox.style.display = "flex";
+  }
+}
+
+function closeError() {
+  const box = document.getElementById("errorBox");
+  if (box) box.style.display = "none";
+}
+
+function injectShakeCSS() {
+
+  if (document.getElementById("shake-style")) return;
+
+  const style = document.createElement("style");
+  style.id = "shake-style";
+
+  style.innerHTML = `
+    .shake {
+      animation: shakeAnim 0.5s;
+    }
+
+    @keyframes shakeAnim {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+      100% { transform: translateX(0); }
+    }
+  `;
+
+  document.head.appendChild(style);
+}
+</script>
+
+</body>
+</html>
