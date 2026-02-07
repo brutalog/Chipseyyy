@@ -216,33 +216,30 @@ button:hover {
 }
 
 .yesImagesRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
   gap: 25px;
-  margin: 40px 0;
 
+  margin: 40px 0;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
+  max-width: 100%;
 }
-
+  
 .yesImg:hover {
   transform: scale(1.05) rotate(1deg);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   .yesImagesRow {
-    flex-wrap: wrap;
-  }
-
-  .yesImg {
-    width: 85%;
+    grid-template-columns: 1fr;
   }
 }
 
 .yesImg{
-  width:220px;
-  max-width:90%;
-  margin:20px 0;
+  width:100%;
+  max-width:260%;
+  margin:auto;
   border-radius:20px;
   box-shadow:0 0 25px rgba(255,105,180,.6);
   animation:popIn 1.2s ease forwards;
@@ -531,4 +528,5 @@ function injectShakeCSS() {
 </body>
 
 </html>
+
 
