@@ -252,28 +252,36 @@ button:hover {
 }
 
 .gojoImagesRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
   gap: 25px;
-  margin: 40px 0;
 
+  margin: 40px 0;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  max-width: 100%;
 }
-
+  
 .gojoImg:hover {
   transform: scale(1.05) rotate(1deg);
 }
 
+@media (max-width: 360px) {
+  .gojoImagesRow {
+    grid-template-columns: 1fr;
+  }
+}
+
 .gojoImg{
-  width:200px;
-  max-width:90%;
-  margin:20px 0;
+  width:100%;
+  max-width:260%;
+  margin:auto;
   border-radius:20px;
   box-shadow:0 0 25px rgba(255,105,180,.6);
   animation:popIn 1.2s ease forwards;
+  transition: transform .25s ease;
 }
-
+  
 </style>
 </head>
 
@@ -528,5 +536,6 @@ function injectShakeCSS() {
 </body>
 
 </html>
+
 
 
