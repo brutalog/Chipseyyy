@@ -222,20 +222,31 @@ button:hover {
 
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .yesImg:hover {
   transform: scale(1.05) rotate(1deg);
 }
 
+@media (max-width: 480px) {
+  .yesImagesRow {
+    flex-wrap: wrap;
+  }
+
+  .yesImg {
+    width: 85%;
+  }
+}
+
 .yesImg{
-  width:200px;
+  width:220px;
   max-width:90%;
   margin:20px 0;
   border-radius:20px;
   box-shadow:0 0 25px rgba(255,105,180,.6);
   animation:popIn 1.2s ease forwards;
+  transition: transform .25s ease;
 }
 
 @keyframes popIn{
@@ -520,3 +531,4 @@ function injectShakeCSS() {
 </body>
 
 </html>
+
