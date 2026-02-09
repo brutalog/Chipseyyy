@@ -216,56 +216,41 @@ button:hover {
 }
 
 .yesImagesRow {
-
-display: grid;
-
-grid-template-columns: repeat(2, minmax(140px, 1fr));
-
-gap: 25px;
-
-margin: 40px 0;
-
-justify-content: center;
-
-align-items: center;
-
-max-width: 100%;
-
+  display: grid;
+  /* Creates 2 columns that are at least 140px wide */
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
 }
 
 .yesImg:hover {
-
-transform: scale(1.05) rotate(1deg);
-
+  transform: scale(1.05) rotate(1deg);
 }
 
-@media (max-width: 360px) {
-
-.yesImagesRow {
-
-grid-template-columns: 1fr;
-
+/* FIX: Changed from 360px to 350px. 
+   Now, phones that are exactly 360px wide (like your Realme) 
+   will skip this and show 2 columns. Only very small screens get 1 column. */
+@media (max-width: 350px) {
+  .yesImagesRow {
+    grid-template-columns: 1fr;
+  }
 }
 
+.yesImg {
+  width: 100%;
+  /* FIX: Changed from 260% to 100%. 
+     This prevents the image from spilling out of its grid cell. */
+  max-width: 100%;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 105, 180, .6);
+  animation: popIn 1.2s ease forwards;
+  transition: transform .25s ease;
 }
 
-.yesImg{
-
-width:100%;
-
-max-width:260%;
-
-margin:auto;
-
-border-radius:20px;
-
-box-shadow:0 0 25px rgba(255,105,180,.6);
-
-animation:popIn 1.2s ease forwards;
-
-transition: transform .25s ease;
-
-}
 
 @keyframes popIn{
   from{transform:scale(.3);opacity:0}
