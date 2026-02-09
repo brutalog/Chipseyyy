@@ -216,51 +216,56 @@ button:hover {
 }
 
 .yesImagesRow {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
 
-  width: 100%;
-  max-width: 600px;
-  margin: 40px auto;
+display: grid;
 
-  padding: 0 15px;
-  box-sizing: border-box;
+grid-template-columns: repeat(2, minmax(140px, 1fr));
+
+gap: 25px;
+
+margin: 40px 0;
+
+justify-content: center;
+
+align-items: center;
+
+max-width: 100%;
+
 }
 
-/* Mobile safety */
-@media (max-width: 480px) {
-  .yesImagesRow {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Image reset + control */
-.yesImagesRow img,
-.yesImg {
-  width: 100% !important;
-  height: auto !important;
-
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-
-  display: block;
-
-  margin: 0 auto;
-
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255,105,180,.6);
-
-  animation: popIn 1s ease forwards;
-  transition: transform .25s ease;
-}
-
-/* hover only */
-.yesImagesRow img:hover,
 .yesImg:hover {
-  transform: scale(1.05) rotate(1deg);
+
+transform: scale(1.05) rotate(1deg);
+
 }
 
+@media (max-width: 360px) {
+
+.yesImagesRow {
+
+grid-template-columns: 1fr;
+
+}
+
+}
+
+.yesImg{
+
+width:100%;
+
+max-width:260%;
+
+margin:auto;
+
+border-radius:20px;
+
+box-shadow:0 0 25px rgba(255,105,180,.6);
+
+animation:popIn 1.2s ease forwards;
+
+transition: transform .25s ease;
+
+}
 
 @keyframes popIn{
   from{transform:scale(.3);opacity:0}
