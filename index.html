@@ -217,8 +217,6 @@ button:hover {
 
 .yesImagesRow {
   display: grid;
-  /* CHANGED: Reduced 140px to 100px. 
-     This ensures 2 columns fit even if the phone has padding or 'Large Display' mode on. */
   grid-template-columns: repeat(2, minmax(100px, 1fr));
   gap: 25px;
   margin: 40px 0;
@@ -231,9 +229,6 @@ button:hover {
   transform: scale(1.05) rotate(1deg);
 }
 
-/* CHANGED: Kept at 320px. 
-   Only extremely small/old phones will see 1 column. 
-   Realme 11 Pro will now use the 2-column layout above. */
 @media (max-width: 320px) {
   .yesImagesRow {
     grid-template-columns: 1fr 1fr;
@@ -273,7 +268,7 @@ button:hover {
 
 @media (max-width: 360px) {
   .gojoImagesRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
