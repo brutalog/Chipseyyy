@@ -228,10 +228,11 @@ button:hover {
   align-items: center;
   width: 100%;
   max-width: 100%;
+  overflow: hidden;
   padding: 0 12px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .yesImagesRow {
     grid-template-columns: 1fr;
   }
@@ -241,9 +242,16 @@ button:hover {
   width: 100%;
   max-width: 100%;
   height: auto;
-  margin: auto;
+
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
   border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255,105,180,.6);
+
+  display: block;
 }
+
 @keyframes popIn{
   from{transform:scale(.3);opacity:0}
   to{transform:scale(1);opacity:1}
